@@ -15,6 +15,7 @@ def encode(password):
     encoded_password = ''.join(password_list)
     return encoded_password
 
+
 # Michael Neff-Flahan
 def to_unencoded(password):
     password_final = []
@@ -34,20 +35,24 @@ def unencode_one(x):
 
 
 def main():
-    print("Menu")
-    print("-------------")
-    print("1. Encode")
-    print("2. Decode")
-    print("3. Quit")
-    menu_option = int(input("Please enter an option: "))
-    if menu_option == 1:
-        encode_password = input("Please enter your password to encode: ")
-        encode(encode_password)
-        print("Your password has been encoded and stored!")
-    elif menu_option == 2:
-        pass
-    elif menu_option == 3:
-        quit()
+    encode_password = ""
+    while True:
+        print("Menu")
+        print("-------------")
+        print("1. Encode")
+        print("2. Decode")
+        print("3. Quit")
+        menu_option = int(input("Please enter an option: "))
+        if menu_option == 1:
+            encode_password = str(input("Please enter your password to encode: "))
+            encode_password = encode(encode_password)
+            print("Your password has been encoded and stored!")
+        elif menu_option == 2:
+            decoded_password = to_unencoded(encode_password)
+            print("The encoded password is", encode_password, "and the original password is", decoded_password)
+
+        elif menu_option == 3:
+            quit()
 
 if __name__ == "__main__":
     main()
