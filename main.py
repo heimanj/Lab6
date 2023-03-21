@@ -1,3 +1,4 @@
+# Jason Heiman
 def encode(password):
     password_list = list(password)
     for x in range(len(password_list)):
